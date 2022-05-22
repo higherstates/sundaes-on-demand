@@ -1,5 +1,5 @@
 {
-  "name": "sundaes-on-demand",
+  "name": "sundaes-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
