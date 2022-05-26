@@ -3,24 +3,29 @@ import { Form, Button } from "react-bootstrap";
 import "./SummaryForm.css";
 
 const SummaryForm = () => {
-	const [isDisabled, setIsDisabled] = useState(true);
+	const [isDisabled, setIsDisabled] = useState(false);
+
+	const checkboxLabel = (
+		<span>
+			I agree to <span style={{ color: "blue" }}>Terms and Conditions</span>
+		</span>
+	);
 
 	return (
-		<>
-			<Form.Group>
+		<Form>
+			<Form.Group controlId="checkbox-confirm">
 				<Form.Check
 					className="d-flex justify-content-center"
 					type="checkbox"
-					id="checkbox-confirm"
-					name="checkbox-confirm"
-					label="I agree to Terms and Conditions"
-					onClick={() => setIsDisabled((prev) => !prev)}
+					checked={isDisabled}
+					label={checkboxLabel}
+					onChange={(e) => setIsDisabled(e.target.checked)}
 				/>
 			</Form.Group>
-			<Button disabled={isDisabled} variant="light">
+			<Button disabled={!isDisabled} variant="light" type="submit">
 				Confirm order
 			</Button>
-		</>
+		</Form>
 	);
 };
 
